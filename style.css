@@ -1,0 +1,444 @@
+* { box-sizing: border-box; }
+
+:root {
+  --yellow: #f5bd0a;
+  --yellow-light: #ffd83d;
+  --yellow-dark: #d99700;
+  --brown: #3b281b;
+  --black: #161616;
+}
+
+html, body { margin: 0; min-height: 100%; }
+
+body {
+  background: #fff;
+  color: var(--black);
+  font-family: "Montserrat", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.scene {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* ---------- TEXTO ---------- */
+
+.message {
+  position: absolute;
+  z-index: 8;
+  left: clamp(24px, 6.5vw, 105px);
+  top: 50%;
+  width: min(40vw, 550px);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.message-inner {
+  opacity: 0;
+  transform: translateY(25px);
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: .65;
+}
+
+h1 {
+  margin: 0;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: clamp(38px, 4vw, 68px);
+  line-height: .98;
+  font-weight: 400;
+}
+
+h1 span { color: #d19d00; }
+
+.divider {
+  width: 68px;
+  height: 2px;
+  background: #d19d00;
+  margin: 24px 0;
+}
+
+.line {
+  margin: 0 0 14px;
+  font-size: clamp(14px, 1.18vw, 18px);
+  line-height: 1.65;
+  color: #292929;
+}
+
+.love {
+  margin: 34px 0 0;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: clamp(29px, 2.55vw, 43px);
+  font-style: italic;
+}
+
+.love span {
+  color: #d19d00;
+  font-style: normal;
+}
+
+/* ---------- ESCENA ---------- */
+
+.animation {
+  position: absolute;
+  right: 2vw;
+  top: 0;
+  width: 59%;
+  height: 100%;
+  min-height: 650px;
+}
+
+.ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10%;
+  height: 1px;
+  background: #202020;
+  opacity: .7;
+}
+
+/* ---------- GIRASOL INICIAL ---------- */
+
+.intro-flower {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  bottom: 10%;
+  width: 280px;
+  height: 490px;
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition: opacity .55s ease, transform .65s ease;
+}
+
+.intro-flower:focus-visible {
+  outline: 2px solid #d19d00;
+  outline-offset: 8px;
+}
+
+.intro-stem {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 20px;
+  height: 220px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #24572d, #3d8143, #24572d);
+  clip-path: polygon(35% 0, 68% 0, 100% 100%, 0 100%);
+}
+
+.intro-leaf {
+  position: absolute;
+  bottom: 62px;
+  width: 86px;
+  height: 39px;
+  background: #347a3e;
+  border-radius: 100% 0 100% 0;
+}
+
+.leaf-left { left: 52px; transform: rotate(20deg); }
+.leaf-right { right: 52px; transform: rotate(160deg); }
+
+.sunflower {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 190px;
+  height: 190px;
+  transform: translateX(-50%);
+}
+
+.petal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 45px;
+  height: 88px;
+  transform-origin: 50% 100%;
+  transform: translate(-50%, -100%) rotate(var(--r));
+  border-radius: 55% 55% 45% 45%;
+  background: linear-gradient(90deg, #e9a900, #ffd33e 48%, #e5a000);
+  box-shadow: 0 1px 2px rgba(100,65,0,.18);
+}
+
+.p1 { --r: 0deg; }
+.p2 { --r: 30deg; }
+.p3 { --r: 60deg; }
+.p4 { --r: 90deg; }
+.p5 { --r: 120deg; }
+.p6 { --r: 150deg; }
+.p7 { --r: 180deg; }
+.p8 { --r: 210deg; }
+.p9 { --r: 240deg; }
+.p10 { --r: 270deg; }
+.p11 { --r: 300deg; }
+.p12 { --r: 330deg; }
+
+.flower-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 82px;
+  height: 82px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%, #8b5a19 0 4%, transparent 5%),
+    radial-gradient(circle at 65% 35%, #5a350b 0 4%, transparent 5%),
+    radial-gradient(circle at 40% 70%, #6d410e 0 4%, transparent 5%),
+    radial-gradient(circle at 75% 70%, #3c2207 0 4%, transparent 5%),
+    radial-gradient(circle, #6b420e 0 57%, #342005 58% 100%);
+  border: 5px solid #a16a18;
+  box-shadow: inset 0 0 0 4px #452907;
+}
+
+.flower-center i {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #241504;
+}
+.flower-center i:nth-child(1) { left: 22%; top: 45%; }
+.flower-center i:nth-child(2) { left: 35%; top: 25%; }
+.flower-center i:nth-child(3) { left: 55%; top: 20%; }
+.flower-center i:nth-child(4) { left: 72%; top: 42%; }
+.flower-center i:nth-child(5) { left: 60%; top: 62%; }
+.flower-center i:nth-child(6) { left: 38%; top: 70%; }
+.flower-center i:nth-child(7) { left: 50%; top: 48%; }
+.flower-center i:nth-child(8) { left: 78%; top: 60%; }
+
+.tap-hint {
+  position: absolute;
+  left: 50%;
+  top: 215px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 12px;
+  letter-spacing: 1px;
+  opacity: .65;
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse { 50% { opacity: .25; } }
+
+/* ---------- SEMILLA ---------- */
+
+.seed {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  bottom: calc(10% + 205px);
+  width: 16px;
+  height: 24px;
+  opacity: 0;
+  transform: translate(-50%, 0) rotate(35deg);
+  border-radius: 55% 55% 45% 45%;
+  background: radial-gradient(circle at 35% 30%, #705126, #24180c 65%);
+}
+
+.seed.drop {
+  animation: seedDrop 1.7s cubic-bezier(.3,.7,.3,1) forwards;
+}
+
+@keyframes seedDrop {
+  0% { opacity: 1; transform: translate(-50%, 0) rotate(35deg); }
+  78% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, 235px) rotate(250deg); }
+}
+
+/* ---------- ÁRBOL ---------- */
+
+.tree-wrap {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  bottom: 10%;
+  width: 560px;
+  height: 610px;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tree {
+  position: absolute;
+  inset: 0;
+  transform-origin: bottom center;
+  transform: scaleY(0);
+}
+
+.tree.grow { animation: treeGrow 2.7s cubic-bezier(.2,.8,.2,1) forwards; }
+
+@keyframes treeGrow {
+  0% { transform: scaleY(0); }
+  100% { transform: scaleY(1); }
+}
+
+.trunk {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 62px;
+  height: 430px;
+  transform: translateX(-50%);
+  background: #3b281b;
+  clip-path: polygon(36% 0, 67% 0, 80% 31%, 100% 100%, 0 100%, 20% 31%);
+  border-radius: 35% 35% 8% 8%;
+}
+
+.branch {
+  position: absolute;
+  height: 22px;
+  background: #3b281b;
+  border-radius: 20px;
+  transform-origin: left center;
+}
+
+.b1 { width: 210px; left: 51%; bottom: 305px; transform: rotate(205deg); }
+.b2 { width: 190px; left: 49%; bottom: 370px; transform: rotate(153deg); }
+.b3 { width: 210px; left: 51%; bottom: 240px; transform: rotate(337deg); }
+.b4 { width: 180px; left: 49%; bottom: 180px; transform: rotate(25deg); }
+.b5 { width: 150px; left: 49%; bottom: 400px; transform: rotate(220deg); }
+.b6 { width: 150px; left: 50%; bottom: 280px; transform: rotate(30deg); }
+.b7 { width: 125px; left: 49%; bottom: 340px; transform: rotate(280deg); }
+.b8 { width: 125px; left: 51%; bottom: 210px; transform: rotate(60deg); }
+
+/* ---------- CORAZÓN DE GIRASOLES ---------- */
+
+.heart {
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  top: 20px;
+  width: 590px;
+  height: 530px;
+  transform: translateX(-50%);
+}
+
+.heart-flower {
+  position: absolute;
+  width: 47px;
+  height: 47px;
+  transform: translate(-50%, -50%) scale(0);
+  animation: bloom .55s cubic-bezier(.2,1.5,.3,1) forwards;
+}
+
+.heart-flower .petal {
+  width: 12px;
+  height: 24px;
+}
+
+.heart-flower .flower-center {
+  width: 21px;
+  height: 21px;
+  border-width: 2px;
+  box-shadow: none;
+}
+
+.heart-flower .flower-center i { display: none; }
+
+@keyframes bloom {
+  to { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* ---------- LLUVIA FINAL ---------- */
+
+.falling-flowers {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.falling {
+  position: absolute;
+  top: -70px;
+  width: 42px;
+  height: 42px;
+  animation: fall linear forwards;
+}
+
+.falling .petal {
+  width: 10px;
+  height: 21px;
+}
+
+.falling .flower-center {
+  width: 21px;
+  height: 21px;
+  border-width: 2px;
+}
+
+.falling .flower-center i { display: none; }
+
+@keyframes fall {
+  0% {
+    transform: translate3d(0, -70px, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  100% {
+    transform: translate3d(var(--drift), 110vh, 0) rotate(540deg);
+    opacity: .9;
+  }
+}
+
+@media (max-width: 900px) {
+  .message {
+    top: 7%;
+    left: 22px;
+    width: calc(100% - 44px);
+    transform: none;
+    text-align: center;
+  }
+
+  .divider { margin: 18px auto; }
+
+  .animation {
+    top: 29%;
+    right: 0;
+    width: 100%;
+    height: 71%;
+    min-height: 550px;
+  }
+
+  .ground { bottom: 4%; }
+  .intro-flower, .tree-wrap { bottom: 4%; }
+
+  .line { font-size: 13px; }
+  .love { margin-top: 18px; }
+}
+
+@media (max-width: 540px) {
+  .message { top: 4%; }
+  h1 { font-size: 33px; }
+  .line:nth-of-type(2), .line:nth-of-type(3) { display: none; }
+
+  .animation { top: 27%; }
+
+  .tree-wrap {
+    transform: translateX(-50%) scale(.68);
+    transform-origin: bottom center;
+  }
+
+  .intro-flower {
+    transform: translateX(-50%) scale(.78);
+    transform-origin: bottom center;
+  }
+
+  .intro-flower:hover { transform: translateX(-50%) scale(.8); }
+}

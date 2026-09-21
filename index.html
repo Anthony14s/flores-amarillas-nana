@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz día de las flores amarillas 🌻</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="scene">
+
+    <div class="falling-flowers" id="fallingFlowers" aria-hidden="true"></div>
+
+    <section class="message" id="message">
+      <div class="message-inner">
+        <span class="eyebrow">Para ti, con cariño</span>
+        <h1>Feliz día de las<br><span>flores amarillas</span></h1>
+        <div class="divider"></div>
+        <p class="line">Cada girasol que ves es un latido de tu corazón.</p>
+        <p class="line">Así como el sol ilumina el campo,<br>tú iluminas el camino.</p>
+        <p class="line">Que estas flores recuerden que eres especial<br>para mí y te aprecio mucho.</p>
+        <p class="love">Te quiero, Nana <span>♥</span></p>
+      </div>
+    </section>
+
+    <section class="animation" aria-label="Animación de un árbol de girasoles">
+
+      <div class="intro-flower" id="introFlower" role="button" tabindex="0"
+           aria-label="Toca el girasol para comenzar">
+        <div class="intro-stem"></div>
+        <div class="intro-leaf leaf-left"></div>
+        <div class="intro-leaf leaf-right"></div>
+
+        <!-- Girasol grande inicial -->
+        <div class="sunflower big-sunflower">
+          <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div>
+          <div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div>
+          <div class="petal p7"></div><div class="petal p8"></div><div class="petal p9"></div>
+          <div class="petal p10"></div><div class="petal p11"></div><div class="petal p12"></div>
+          <div class="flower-center">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+        <span class="tap-hint">Toca el girasol</span>
+      </div>
+
+      <div class="seed" id="seed" aria-hidden="true"></div>
+
+      <div class="tree-wrap" id="treeWrap">
+        <div class="tree" id="tree" aria-hidden="true">
+          <div class="trunk"></div>
+          <div class="branch b1"></div><div class="branch b2"></div><div class="branch b3"></div>
+          <div class="branch b4"></div><div class="branch b5"></div><div class="branch b6"></div>
+          <div class="branch b7"></div><div class="branch b8"></div>
+        </div>
+
+        <!-- Aquí se dibuja el corazón real de girasoles -->
+        <div class="heart" id="heart" aria-hidden="true"></div>
+      </div>
+
+      <div class="ground"></div>
+    </section>
+  </main>
+
+  <audio id="music" loop preload="auto">
+    <source src="assets/musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
